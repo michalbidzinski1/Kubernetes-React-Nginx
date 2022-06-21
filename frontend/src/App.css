@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+}
+
+.left {
+  flex: 0 0 50%;
+  background-color: lightgreen;
+  height: 100vh;
+  text-align: center;
+}
+
+.right {
+  flex: 1;
+  text-align: center;
+  background-color: lightcoral;
+  height: 100vh;
+}
+form {
+  box-sizing: border-box;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  border: 2px solid hsl(0, 0%, 90%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 40%;
+  margin-left: 280px;
+}
+
+.add {
+  display: flex;
+  align-self: flex-end;
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 1rem;
+  opacity: 0.8;
+}
+
+input {
+  border-radius: 1rem;
+  border: 2px solid hsl(0, 0%, 90%);
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 1px;
+}
+.note {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1rem;
+  border: 2px solid hsl(0, 0%, 90%);
+  padding: 5px;
+}
+.dbutton {
+  display: flex;
+  align-self: flex-end;
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 6px;
+  opacity: 0.8;
+}
+.dbutton::before {
+  content: "❌ ";
+}

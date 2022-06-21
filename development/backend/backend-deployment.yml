@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: development
+spec:
+  selector:
+    matchLabels:
+      type: backend
+      app: mybackend
+  replicas: 2
+  template:
+    metadata:
+      name: backend-pod
+      namespace: development
+      labels:
+        type: backend
+        app: mybackend
+
+    spec:
+      containers:
+        - name: backend-container
+          image: mkl1337/kubernetes-backend:dev-1.0
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - configMapRef:
+                name: mongo-config

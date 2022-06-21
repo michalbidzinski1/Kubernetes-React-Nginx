@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: frontend-config
+  namespace: production
+
+data:
+  frontend.properties: |
+    window.BACKEND_HOST= "http://localhost/production/backend/"

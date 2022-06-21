@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mongo-deployment
+  namespace: production
+  labels:
+    type: db
+    app: mongo
+
+spec:
+  template:
+    metadata:
+      name: mongo-pod
+      namespace: production
+      labels:
+        type: db
+        app: mongo
+
+    spec:
+      containers:
+        - name: mongo-container
+          image: mongo:latest
+          envFrom:
+            - configMapRef:
+                name: mongo-config
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongo-claim
+      volumes:
+        - name: mongo-claim
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+
+  replicas: 1
+  selector:
+    matchLabels:
+      type: db
+      app: mongo

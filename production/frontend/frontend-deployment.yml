@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: production
+spec:
+  selector:
+    matchLabels:
+      type: frontend
+      app: myfrontend
+  replicas: 1
+  template:
+    metadata:
+      name: frontend-pod
+      namespace: production
+      labels:
+        type: frontend
+        app: myfrontend
+
+    spec:
+      containers:
+        - name: frontend-container
+          image: mkl1337/kubernetes-frontend:prod-1.0
+          volumeMounts:
+            - name: config
+              mountPath: "/usr/share/nginx/html/config.js"
+              subPath: "config.js"
+      volumes:
+        - name: config
+          configMap:
+            name: frontend-config
+            items:
+              - key: "frontend.properties"
+                path: "config.js"

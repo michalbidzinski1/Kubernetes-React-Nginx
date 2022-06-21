@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: mongo-config
+  namespace: production
+
+data:
+  MONGO_DATABASE: local
