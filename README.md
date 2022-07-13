@@ -64,7 +64,7 @@ kubectl apply -f ./development/redis/
 kubectl apply -f ./development/ingress/
 ```
 
-Aplikacja dostępna będzie pod:
+Aplikacja dostępna  pod:
 
 http://localhost:80/development/
 
